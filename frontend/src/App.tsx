@@ -4,22 +4,23 @@ import Layout from "./common/Layout";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import NoMatch from "./pages/NoMatch";
+import LayoutWrapper from "./common/LayoutWrapper";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/about" element={<AboutPage />} /> */}
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          {/* <Route path="/createcv" element={<CreateCVPage />} /> */}
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+        <Route path="/" element={<LayoutWrapper />}>
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          {/* <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="dashboard" element={<Dashboard />} /> */}
-
-          {/* Using path="*"" means "match anything", so this route
-                acts like a catch-all for URLs that we don't have explicit
-                routes for. */}
-          <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
     </div>

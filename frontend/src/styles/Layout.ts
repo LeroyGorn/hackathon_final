@@ -13,3 +13,8 @@ export const LayoutWrapper = styled.div`
     position: relative;
   }
 `;
+
+export const LayoutContainer = styled.div`
+  background-color: ${themes.colors.secondary};
+  min-height: 100vh;
+`;
