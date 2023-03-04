@@ -6,8 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# MacOS trash
+.DS_Store
+
 # Distribution / packaging
 .Python
+local.py
+.idea/
 build/
 develop-eggs/
 dist/
@@ -127,3 +132,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+*node_modules
+*.lock
