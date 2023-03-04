@@ -1,6 +1,6 @@
 import React from "react";
 import InfoSection from "../components/infoSection";
-import * as Styled from "../styles/home.styled"
+import * as Styled from "../styles/home.styled";
 
 const HomePage = () => {
 

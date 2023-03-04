@@ -74,7 +74,7 @@ const SignInPage = () => {
               <AuthButton type="submit" title="Register" />
               <HelpText>
                 Already have an Account?{" "}
-                <HelperTextLink href="/signin">Log in</HelperTextLink>
+                <HelperTextLink to="/signin">Log in</HelperTextLink>
               </HelpText>
               {error && <ErrorText>{error}</ErrorText>}
             </Form>
@@ -89,4 +89,3 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
-

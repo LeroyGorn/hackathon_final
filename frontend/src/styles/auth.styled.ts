@@ -1,4 +1,5 @@
 import { Field } from "formik";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { themes } from "./themes";
 
@@ -72,7 +73,7 @@ export const HelpText = styled.div`
   text-align: center;
 `;
 
-export const HelperTextLink = styled.a`
+export const HelperTextLink = styled(Link)`
   color: ${themes.colors.primary};
   text-decoration: none;
   font-weight: ${themes.font.weight.semiBold};

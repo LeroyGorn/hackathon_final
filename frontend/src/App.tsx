@@ -7,6 +7,7 @@ import NoMatch from "./pages/NoMatch";
 import LayoutWrapper from "./common/LayoutWrapper";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import CreateCVPage from "./pages/CreateCVPage";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           {/* <Route path="/profile" element={<ProfilePage />} /> */}
-          {/* <Route path="/createcv" element={<CreateCVPage />} /> */}
+          <Route path="/createcv" element={<CreateCVPage />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
         <Route path="/" element={<LayoutWrapper />}>
