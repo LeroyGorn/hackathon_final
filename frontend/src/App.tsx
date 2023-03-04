@@ -6,6 +6,7 @@ import SignUpPage from "./pages/SignUpPage";
 import NoMatch from "./pages/NoMatch";
 import LayoutWrapper from "./common/LayoutWrapper";
 import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/about" element={<AboutPage />} /> */}
+          <Route path="/about" element={<AboutPage />} />
           {/* <Route path="/profile" element={<ProfilePage />} /> */}
           {/* <Route path="/createcv" element={<CreateCVPage />} /> */}
           <Route path="*" element={<NoMatch />} />

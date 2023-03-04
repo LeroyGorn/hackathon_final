@@ -11,7 +11,7 @@ export const InfoSectionData = [
   },
   {
     title: "Fullfill your CV",
-    description: "Boost your resume by working on exciting projects and collaborating with professionals in your field. Our website allows you to showcase your skills and contributions, helping you stand out to potential employers and advance your career.",
+    description: "Boost your resume by working on exciting projects and collaborating with colleagues. Our website allows you to showcase your skills and contributions, helps you stand out to potential employers and advance your career.",
     buttonText: "Go for it",
   }
 ]
