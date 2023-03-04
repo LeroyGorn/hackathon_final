@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import * as Styled from "../styles/auth.styled";
 
 interface IAuthInput {
   title: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
   name: string;
 }
 
