@@ -15,6 +15,17 @@ export interface ISignUpData {
 export interface ISignInResponse {
   refresh: string;
   access: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  role: string;
+}
+
+export interface ISignUpResponse {
+  email: string;
+  first_name: string;
+  last_name: string;
+  role: string;
 }
 
 export interface IUserState {
