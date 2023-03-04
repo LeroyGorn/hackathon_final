@@ -90,3 +90,10 @@ export const signUpInputData = {
   ],
   button: "Register",
 };
+
+export const NavBarLinks = [
+  { name: "About", link: "/about" },
+  { name: "Profile", link: "/profile" },
+  { name: "Projects", link: "/projects" },
+  { name: "Active Users", link: "/users" },
+];

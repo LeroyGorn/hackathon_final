@@ -1,5 +1,6 @@
 import { Formik, Form, FormikHelpers } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AuthButton from "../common/AuthButton";
 import AuthInput from "../common/AuthInput";
@@ -17,8 +18,10 @@ import {
 } from "../styles/auth.styled";
 import { ISignInData } from "../types/auth.types";
 import { SigninSchema } from "../validators/SignInValidator";
+import { get } from "../redux/slices/user-slice";
 
 const SignInPage = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigate();
   const handleSubmit = (
     values: ISignInData,
@@ -29,6 +32,9 @@ const SignInPage = () => {
         localStorage.setItem("ACCESS_TOKEN", res.access);
         localStorage.setItem("REFRESH_TOKEN", res.refresh);
         localStorage.setItem("USER_NAME", res.first_name);
+        const { first_name, last_name, email } = res;
+        const userStoreData = { first_name, last_name, email };
+        dispatch(get(userStoreData));
         navigation("/");
       }
     });
@@ -61,7 +67,7 @@ const SignInPage = () => {
               <AuthButton type="submit" title="Login" />
               <HelpText>
                 Don’t have an Account?{" "}
-                <HelperTextLink href="/signup">Register</HelperTextLink>
+                <HelperTextLink to="/signup">Register</HelperTextLink>
               </HelpText>
             </Form>
           )}
