@@ -47,13 +47,22 @@ export const AuthModalWrapper = styled.div`
 `;
 
 export const AuthButtonElement = styled.button`
-  height: 57px;
   width: 100%;
+  padding: 20px;
+  height: 57px;
   background-color: ${themes.colors.primary};
+  border: 1px solid ${themes.colors.primary};
   border-radius: 6px;
   color: ${themes.colors.secondary};
   font-size: 16px;
+  line-height: 16px;
   cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #fff;
+    color:${themes.colors.primary} ;
+  }
 `;
 
 export const HelpText = styled.div`

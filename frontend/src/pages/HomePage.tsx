@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import InfoSection from "../components/infoSection";
 import * as Styled from "../styles/home.styled"
 
 const HomePage = () => {
-  // const [search, setSearch] = useState<string>("");
 
   return (
     <Styled.HomeContainer>
-      <img src="./homepage.png" alt="Homepage" />
-      {/* <SearchInput
-        search={search}
-        setSearch={setSearch}
-        label="Search fore recipes"
-      /> */}
+      <img className="main-image" src="./images/homepage.png" alt="Homepage" />
       <InfoSection />
+      <img className="bottom-image" src="./images/team.png" alt="Team" />
     </Styled.HomeContainer>
   );
 };

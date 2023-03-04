@@ -4,27 +4,6 @@ import Logo from "../../common/Logo";
 import * as Styled from "../../styles/header.styled";
 
 const Header = () => {
-  // const userData = useSelector(showUser);
-  // const [name, setName] = useState<string>();
-  // const [isLogined, setIsLogined] = useState(
-  //   !!localStorage.getItem("USERNAME")
-  // );
-
-  // useEffect(() => {
-  //   if (typeof localStorage.getItem("USERNAME") === "string") {
-  //     setName(localStorage.getItem("USERNAME") as string);
-  //   }
-  //   if (userData.first_name) {
-  //     setName(userData.first_name);
-  //   }
-  // }, [userData.first_name]);
-
-  // const handleLogoutClick = () => {
-  //   localStorage.removeItem("ACCESS_TOKEN");
-  //   localStorage.removeItem("REFRESH_TOKEN");
-  //   localStorage.removeItem("USERNAME");
-  //   setIsLogined(false);
-  // };
 
   return (
     <Styled.HeaderContainer>
