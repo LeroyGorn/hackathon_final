@@ -3,14 +3,24 @@ import React, { useState, useMemo } from "react";
 import * as Styled from "../styles/auth.styled";
 
 interface IAuthDropdown {
+  setCurrHeader: React.Dispatch<React.SetStateAction<string>>;
+  currHeader: string;
   name: string;
   header: string;
   title: string;
   options: string[];
+  error?: string;
 }
 
-const AuthDropdown = ({ name, header, title, options }: IAuthDropdown) => {
-  const [currHeader, setCurrHeader] = useState(header);
+const AuthDropdown = ({
+  setCurrHeader,
+  currHeader,
+  name,
+  header,
+  title,
+  options,
+  error,
+}: IAuthDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { setFieldValue } = useFormikContext();
 
@@ -29,8 +39,10 @@ const AuthDropdown = ({ name, header, title, options }: IAuthDropdown) => {
   }, [isOpen]);
 
   const headerClassName = useMemo(() => {
-    return currHeader !== header ? "selected" : "placeholder";
+    return currHeader && currHeader !== header ? "selected" : "placeholder";
   }, [currHeader, header]);
+
+  const preview = currHeader ? currHeader : header;
 
   return (
     <Styled.InputWrapper>
@@ -39,12 +51,13 @@ const AuthDropdown = ({ name, header, title, options }: IAuthDropdown) => {
         onClick={handlePreviewClick}
         className={headerClassName}
       >
-        {currHeader}
+        {preview}
         <Styled.DropdownArrow className={openClassName}>
           <span />
           <span />
         </Styled.DropdownArrow>
       </Styled.DropdownPreview>
+      <Styled.AuthError>{error}</Styled.AuthError>
       <Styled.DropdownContent className={openClassName}>
         {options.map((option, idx) => (
           <Styled.DropdownOption onClick={() => handleChange(option)} key={idx}>

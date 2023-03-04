@@ -36,6 +36,14 @@ export const AuthModalWrapper = styled.div`
   border: 0.5px solid ${themes.colors.mediumGrey};
   box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
+
+  @media ${themes.media.maxMobile} {
+    width: 470px;
+  }
+
+  @media ${themes.media.maxLowScreenMobile} {
+    width: 100%;
+  }
 `;
 
 export const AuthButtonElement = styled.button`
@@ -108,21 +116,50 @@ export const AuthSubtitle = styled.h3`
 
 export const SignInWrapper = styled.div`
   padding-top: 170px;
+  padding-left: 110px;
   min-height: 100%;
   display: flex;
   column-gap: 150px;
   align-items: center;
+
+  @media ${themes.media.maxTabletLandScape} {
+    flex-direction: column;
+    column-gap: 0;
+    row-gap: 30px;
+    padding-left: 0;
+  }
+
+  @media ${themes.media.maxMobile} {
+    padding-top: 70px;
+  }
 `;
 
 export const SignUpWrapper = styled.div`
+  padding-left: 110px;
   display: flex;
   column-gap: 150px;
   align-items: center;
+  padding-top: 60px;
+
+  @media ${themes.media.maxTabletLandScape} {
+    flex-direction: column;
+    column-gap: 0;
+    row-gap: 30px;
+    padding-left: 0;
+  }
+
+  @media ${themes.media.maxMobile} {
+    padding-top: 70px;
+  }
 `;
 
 export const AuthBackgroundWrapper = styled.div``;
 
-export const AuthBackground = styled.img``;
+export const AuthBackground = styled.img`
+  @media ${themes.media.maxLowScreenMobile} {
+    width: 100%;
+  }
+`;
 
 export const DropdownPreview = styled.div`
   width: 100%;
@@ -222,4 +259,20 @@ export const DropdownOption = styled.div`
   &:first-of-type {
     border-width: 0 0.6px 0 0.6px;
   }
+`;
+
+export const AuthError = styled.div`
+  font-size: 14px;
+  position: absolute;
+  color: ${themes.colors.error};
+`;
+
+export const ErrorText = styled.div`
+  margin-top: 10px;
+  padding: 20px;
+  border: 3px solid ${themes.colors.error};
+  background-color: ${themes.colors.errorAlert};
+  border-radius: 6px;
+  text-align: center;
+  font-weight: ${themes.font.weight.semiBold};
 `;

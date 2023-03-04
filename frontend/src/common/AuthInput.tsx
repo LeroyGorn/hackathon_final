@@ -6,9 +6,10 @@ interface IAuthInput {
   type: string;
   placeholder?: string;
   name: string;
+  error?: string;
 }
 
-const AuthInput = ({ title, type, placeholder, name }: IAuthInput) => {
+const AuthInput = ({ title, type, placeholder, name, error }: IAuthInput) => {
   //   const [passwordIsShown, setPasswordIsShown] = useState<boolean>(
   //     type === "password"
   //   );
@@ -17,6 +18,7 @@ const AuthInput = ({ title, type, placeholder, name }: IAuthInput) => {
     <Styled.InputWrapper>
       <Styled.InputTitle>{title}</Styled.InputTitle>
       <Styled.AuthInput name={name} type={type} placeholder={placeholder} />
+      {error && <Styled.AuthError>{error}</Styled.AuthError>}
     </Styled.InputWrapper>
   );
 };
