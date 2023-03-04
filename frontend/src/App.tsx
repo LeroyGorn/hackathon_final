@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./common/Layout";
-import LoginPage from "./pages/LoginPage";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
 import NoMatch from "./pages/NoMatch";
 
 const App = () => {
@@ -9,7 +10,8 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
           {/* <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="dashboard" element={<Dashboard />} /> */}
@@ -25,4 +27,3 @@ const App = () => {
 };
 
 export default App;
-

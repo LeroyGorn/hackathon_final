@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "@types/styled-components": "^5.1.26"
   }
 }
