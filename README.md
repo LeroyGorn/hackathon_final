@@ -18,8 +18,10 @@ To run our project:
 	- deploy it to heroku and specify allowed hosts in settings, make sure it running
 	(NOTE: connection should be over HTTPS protocol for successfull work of frontend)
 2) Run frontend:
-
-	
+	- specify all .env values
+	- **yarn start** for starting project localy
+	- **yarn build** for creating build folder 
+	- deploy it to heroku, make sure it running
 
 Shortly about technology stack our project created with:
 
