@@ -1,6 +1,6 @@
 import React from "react";
-import TopSection from "../components/topSection";
-import BottomSection from "../components/bottomSection";
+import TopSection from "../components/topAboutSection";
+import BottomSection from "../components/bottomAboutSection";
 import * as Styled from "../styles/about.styled"
 
 const AboutPage = () => {

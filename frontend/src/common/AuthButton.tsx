@@ -4,7 +4,7 @@ import { AuthButtonElement } from "../styles/auth.styled";
 interface IAuthButtonProps {
   type: "button" | "submit" | "reset";
   title: string;
-  handleClick?: () => {};
+  handleClick?: () => void;
 }
 
 const AuthButton = ({ type, title, handleClick }: IAuthButtonProps) => {
