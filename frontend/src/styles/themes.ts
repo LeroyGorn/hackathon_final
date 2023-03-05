@@ -5,6 +5,8 @@ export const themes = {
     darkGrey: "#282828",
     mediumGrey: "#878787",
     lightGrey: "#ABABAB",
+    error: "#ff0a0a",
+    errorAlert: "#ff6666",
   },
   font: {
     family: {
