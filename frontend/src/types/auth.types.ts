@@ -26,6 +26,7 @@ export interface ISignInResponse {
   first_name: string;
   last_name: string;
   role: string;
+  id: number;
 }
 
 export interface ISignUpResponse {

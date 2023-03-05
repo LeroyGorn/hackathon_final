@@ -1,6 +1,7 @@
 import { HttpService } from "../http.service";
 import { HttpServiceInstances } from "..";
 import { IProjects } from "../../types/project.types";
+import { IUsersState } from "../../types/auth.types";
 
 export class ProjectsService {
   constructor(private httpService: HttpService) {}
@@ -17,6 +18,16 @@ export class ProjectsService {
     id: string
   ): Promise<void | { project: IProjects }> {
     return this.httpService.get(`api/projects/details/${id}/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  public getProjectWaitingUsers(
+    token: string,
+    id: string
+  ): Promise<void | IUsersState[]> {
+    return this.httpService.get(` api/projects/users/approve/${id}/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

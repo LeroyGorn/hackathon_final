@@ -30,3 +30,25 @@ export const RegularData = styled.div`
   font-size: 18px;
   line-height: 27px;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  & button {
+    width: 50%;
+  }
+
+  @media ${themes.media.maxMobile} {
+    & button {
+      width: 90%;
+    }
+  }
+
+  @media ${themes.media.maxLowScreenMobile} {
+    & button {
+      width: 100%;
+    }
+  }
+`;

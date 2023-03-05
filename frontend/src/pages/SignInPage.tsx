@@ -29,12 +29,15 @@ const SignInPage = () => {
   ) => {
     authService.signin(values).then((res) => {
       if (res) {
+        console.log(res);
+
         localStorage.setItem("ACCESS_TOKEN", res.access);
         localStorage.setItem("REFRESH_TOKEN", res.refresh);
         localStorage.setItem("USER_NAME", res.first_name);
         localStorage.setItem("LAST_NAME", res.last_name);
         localStorage.setItem("USER_EMAIL", res.email);
         localStorage.setItem("USER_ROLE", res.role);
+        localStorage.setItem("USER_ID", `${res.id}`);
         const { first_name, last_name, email, role } = res;
         const userStoreData = { first_name, last_name, email, role };
         dispatch(get(userStoreData));

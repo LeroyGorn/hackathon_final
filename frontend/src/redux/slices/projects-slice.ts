@@ -6,9 +6,11 @@ const initialState: IProjects[] = [
   {
     id: 0,
     name: "",
+    founder: 0,
     description: "",
     max_members: 0,
     project_stack: [],
+    members: [],
   },
 ];
 
@@ -23,7 +25,15 @@ export const userSlice = createSlice({
 
     remove: (state) => {
       state = [
-        { id: 0, name: "", description: "", max_members: 0, project_stack: [] },
+        {
+          id: 0,
+          name: "",
+          founder: 0,
+          description: "",
+          max_members: 0,
+          project_stack: [],
+          members: [],
+        },
       ];
       return state;
     },
