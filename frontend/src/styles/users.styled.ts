@@ -38,15 +38,13 @@ export const CardWrapper = styled.div`
   .bold-text {
     font-weight: 700;
   }
-
-  .top-wrapper {
-    .project-name {
+    
+  .user-name {
       font-size: 38px;
       margin-bottom: 20px;
     }
-  }
 
-  .project-description {
+  .user-experience {
     margin-bottom: 20px;
   }
 

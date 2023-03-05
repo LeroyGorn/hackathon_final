@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Formik } from 'formik'
 import AuthButton from '../../common/AuthButton'
-import AuthInput from '../../common/AuthInput'
+import AuthInput from '../../common/Input'
 import { initialUpdateUserData, updateInputData } from '../../constants'
 import { IUpdateData } from '../../types/auth.types'
 import { UpdateSchema } from '../../validators/UpdateValidator'
