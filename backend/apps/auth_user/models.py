@@ -28,6 +28,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+
     class RoleChoices(models.TextChoices):
         recruiter = 'Recruiter', 'Recruiter'
         candidate = 'Candidate', 'Candidate'
@@ -74,53 +75,3 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         if self.role == role:
             return True
         return False
-
-
-class CustomUserResume(models.Model):
-    user = models.OneToOneField(
-        CustomUser,
-        related_name="user_resume",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True
-    )
-
-    photo = models.ImageField(
-        upload_to="user_photos",
-        null=True,
-        blank=True
-    )
-
-    company_name = models.CharField(
-        max_length=128,
-        null=True,
-        blank=True
-    )
-
-    linked_in = models.URLField(
-        null=True,
-        blank=True
-    )
-
-    telegram = models.URLField(
-        null=True,
-        blank=True
-    )
-
-    github = models.URLField(
-        null=True,
-        blank=True
-    )
-
-    education = models.TextField(
-        null=True,
-        blank=True
-    )
-
-    work_experience = models.TextField(
-        null=True,
-        blank=True
-    )
-
-    def __str__(self):
-        return f"{self.user.email} - {self.id}"
