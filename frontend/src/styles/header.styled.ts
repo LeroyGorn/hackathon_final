@@ -86,6 +86,7 @@ export const WebMenu = styled.div`
 export const MobileMenu = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   & a {
     color: ${themes.colors.primary};

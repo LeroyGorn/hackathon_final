@@ -11,6 +11,17 @@ export class ProjectsService {
       },
     });
   }
+
+  public getProjectById(
+    token: string,
+    id: string
+  ): Promise<void | { project: IProjects }> {
+    return this.httpService.get(`api/projects/details/${id}/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 }
 
 const factory = new HttpServiceInstances();

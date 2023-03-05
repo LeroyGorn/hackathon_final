@@ -3,7 +3,7 @@ import { themes } from "./themes";
 
 export const ProjectsContainer = styled.div`
   padding: 0 20px 20px;
-  
+
   .wrapper {
     max-width: 900px;
     padding: 20px;
@@ -25,7 +25,7 @@ export const ProjectsContainer = styled.div`
   @media ${themes.media.maxMobile} {
     padding: 0 5px 10px;
   }
-`
+`;
 
 export const CardWrapper = styled.div`
   width: 100%;
@@ -36,7 +36,11 @@ export const CardWrapper = styled.div`
   margin-bottom: 20px;
 
   .bold-text {
-    font-weight: 700;
+    font-weight: ${themes.font.weight.bold};
+  }
+
+  .experience {
+    margin-left: 20px;
   }
 
   .top-wrapper {
@@ -69,6 +73,11 @@ export const CardWrapper = styled.div`
       p {
         margin-bottom: 20px;
       }
-    } 
+    }
   }
-`
+`;
+
+export const ProjectButtonsWrapper = styled.div`
+  display: flex;
+  column-gap: 10px;
+`;

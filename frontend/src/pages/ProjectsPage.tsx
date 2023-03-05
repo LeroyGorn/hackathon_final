@@ -17,8 +17,9 @@ const ProjectsPage = () => {
     if (token)
       projectService
         .getProjects(token)
-        .then((res) => res && dispatch(get(res)));
-  }, [dispatch]);
+        .then((res) => res && dispatch(get(res)))
+        .catch(() => navigate("/signin"));
+  }, [dispatch, navigate]);
 
   const handleClick = () => {
     navigate("/createproject");
@@ -32,8 +33,8 @@ const ProjectsPage = () => {
           title="Create New Project"
           handleClick={handleClick}
         />
-        {data.map((card, idx) => (
-          <ProjectCard {...card} key={idx} />
+        {data.map((card) => (
+          <ProjectCard {...card} key={card.id} />
         ))}
       </div>
       <img

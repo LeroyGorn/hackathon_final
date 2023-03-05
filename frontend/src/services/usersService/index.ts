@@ -1,24 +1,20 @@
 import { HttpService } from "../http.service";
 import { HttpServiceInstances } from "..";
-import { ICreateCVResponse, ICVData } from "../../types/createcv.types";
+import { IUsersState } from "../../types/auth.types";
 
-export class CVService {
+export class UsersService {
   constructor(private httpService: HttpService) {}
-  public createCV(
-    data: ICVData,
-    token: string
-  ): Promise<void | ICreateCVResponse> {
-    return this.httpService.post("api/users/summary/", data, {
+  public getUsers(token: string): Promise<void | IUsersState[]> {
+    return this.httpService.get("api/users/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
   }
-
-  public getCVByUserId(
-    id: number,
+  public getUserById(
+    id: string,
     token: string
-  ): Promise<void | ICreateCVResponse> {
+  ): Promise<void | { summary: IUsersState }> {
     return this.httpService.get(`api/users/summary/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -28,4 +24,4 @@ export class CVService {
 }
 
 const factory = new HttpServiceInstances();
-export const cvService = new CVService(factory.createAxiosHttpService());
+export const usersService = new UsersService(factory.createAxiosHttpService());

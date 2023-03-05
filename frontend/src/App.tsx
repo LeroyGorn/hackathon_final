@@ -12,6 +12,8 @@ import ProfilePage from "./pages/ProfilePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import UsersPage from "./pages/UsersPage";
 import CreateProjectPage from "./pages/CreateProjectPage";
+import UserPage from "./pages/UserPage";
+import ProjectPage from "./pages/ProjectPage";
 
 const App = () => {
   return (
@@ -25,9 +27,8 @@ const App = () => {
           <Route path="/users" element={<UsersPage />} />
           <Route path="/createcv" element={<CreateCVPage />} />
           <Route path="/createproject" element={<CreateProjectPage />} />
-          <Route path="/cv" element={<CreateCVPage />} />
-          <Route path="/project:id" element={<ProjectsPage />} />
-          <Route path="/user:id" element={<UsersPage />} />
+          <Route path="/project" element={<ProjectPage />} />
+          <Route path="/cv" element={<UserPage />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
         <Route path="/" element={<LayoutWrapper />}>

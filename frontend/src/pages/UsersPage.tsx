@@ -1,55 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import UserCard from "../components/userCard";
-import * as Styled from "../styles/users.styled"
+import { get, showUsers } from "../redux/slices/users-slice";
+import { usersService } from "../services/usersService";
+import * as Styled from "../styles/users.styled";
 
 const AboutPage = () => {
-  const mock = [
-    {
-      id: 1,
-      name: "Ostap Tudy",
-      experience: "Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      user_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    },
-    {
-      id: 2,
-      name: "Pylyp Perl",
-      experience: "Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      user_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    },
-    {
-      id: 2,
-      name: "Leonid Titka",
-      experience: "Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      user_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    },
-    {
-      id: 4,
-      name: "Katrya Privit",
-      experience: "Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      user_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    },
-  ]
+  const data = useSelector(showUsers);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem("ACCESS_TOKEN");
+    if (token) {
+      usersService.getUsers(token).then((res) => res && dispatch(get(res)));
+    }
+  }, [dispatch]);
 
   return (
     <Styled.UsersContainer>
       <div className="wrapper">
-        {mock.map((user) => <UserCard {...user} key={user.id}/>)}
+        {data.map(
+          ({
+            user,
+            education,
+            tech_stack,
+            work_experience,
+            years_experience,
+          }) => (
+            <UserCard
+              id={user.id}
+              education={education}
+              years_experience={years_experience}
+              experience={work_experience}
+              user_stack={tech_stack}
+              name={`${user.first_name} ${user.last_name}`}
+              key={user.id}
+            />
+          )
+        )}
       </div>
       <img className="users-image" src="./images/users.svg" alt="Projects" />
     </Styled.UsersContainer>

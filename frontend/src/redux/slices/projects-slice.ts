@@ -4,6 +4,7 @@ import { IProjects } from "../../types/project.types";
 
 const initialState: IProjects[] = [
   {
+    id: 0,
     name: "",
     description: "",
     max_members: 0,
@@ -22,7 +23,7 @@ export const userSlice = createSlice({
 
     remove: (state) => {
       state = [
-        { name: "", description: "", max_members: 0, project_stack: [] },
+        { id: 0, name: "", description: "", max_members: 0, project_stack: [] },
       ];
       return state;
     },
