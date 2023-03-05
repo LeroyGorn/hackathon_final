@@ -57,15 +57,6 @@ export const createProjectInputData = [
     placeholder: "5",
     name: "members",
   },
-  {
-    id: 4,
-    title: "Update Role",
-    type: "text",
-    name: "stack",
-    dropdown: true,
-    dropdownHeader: "Choose your Stack",
-    dropdownOptions: ["Python", "Scala", "C++", "C#", "Java", "JavaScript", "Ruby", "PHP", "Django", "Flask", "Laravel", "Symfony", "Spring", ".NET", "React", "Angular", "Ruby on rails", "TypeScript", "MySQL", "PostgreSQL", "Celery"],
-  }
 ];
 
 export const updateInputData = [
