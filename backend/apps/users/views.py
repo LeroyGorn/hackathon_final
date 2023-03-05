@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 
 from apps.users.serializers import (RecruiterSummarySerializer, CandidateSummarySerializer,
                                     CandidateUserSerializer, CandidateResumeSerializer)

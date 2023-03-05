@@ -2,13 +2,13 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics, status
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import IsAuthenticated
-
-from apps.projects.models import Project
-from apps.projects.serializers import ProjectSerializer, ProjectCreateUpdateSerializer
-from apps.projects.filters import ProjectsFilter
-from apps.projects.permissions import UserProjectPermission
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from apps.projects.models import Project
+from apps.projects.serializers import ProjectSerializer, ProjectCreateUpdateSerializer, ProjectInfoSerializer
+from apps.projects.filters import ProjectsFilter
+from apps.projects.permissions import UserProjectPermission
 
 from apps.auth_user.models import CustomUser
 from apps.users.models import CustomUserResume
@@ -28,6 +28,17 @@ class ProjectsListAPIView(generics.ListAPIView):
             is_active=True,
             is_open=True
         )
+
+
+class ProjectsInfoListAPIView(generics.ListAPIView):
+    permission_classes = (
+        IsAuthenticated,
+    )
+    serializer_class = ProjectInfoSerializer
+
+    def get(self, request, *args, **kwargs):
+        project = get_object_or_404(Project, id=self.kwargs.get('project_id'))
+        return Response({'project': ProjectInfoSerializer(project).data})
 
 
 class ProjectListCreateAPIView(generics.ListCreateAPIView):
@@ -82,5 +93,6 @@ class ApproveUserAPIView(APIView):
         user = get_object_or_404(CustomUser, id=self.kwargs.get('user_id'))
         project.wait_members.remove(user)
         project.members.add(user)
+        user.is_approved = True
         project.save()
         return Response(status=status.HTTP_200_OK)

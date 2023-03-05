@@ -41,6 +41,7 @@ class CustomObtainTokenSerializer(TokenObtainPairSerializer):
         refresh = self.get_token(self.user)
         data['refresh'] = str(refresh)
         data['access'] = str(refresh.access_token)
+        data['id'] = self.user.id
         data['email'] = self.user.email
         data['first_name'] = self.user.first_name
         data['last_name'] = self.user.last_name
@@ -50,6 +51,7 @@ class CustomObtainTokenSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super(CustomObtainTokenSerializer, cls).get_token(user)
+        token['id'] = user.id
         token['email'] = user.email
         token['first_name'] = user.first_name
         token['last_name'] = user.last_name
