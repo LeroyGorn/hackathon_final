@@ -8,6 +8,10 @@ import LayoutWrapper from "./common/LayoutWrapper";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import CreateCVPage from "./pages/CreateCVPage";
+import ProfilePage from "./pages/ProfilePage";
+import ProjectsPage from "./pages/ProjectsPage";
+import UsersPage from "./pages/UsersPage";
+import CreateProjectPage from "./pages/CreateProjectPage";
 
 const App = () => {
   return (
@@ -16,8 +20,12 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/users" element={<UsersPage />} />
           <Route path="/createcv" element={<CreateCVPage />} />
+          <Route path="/createproject" element={<CreateProjectPage />} />
+          <Route path="/cv" element={<CreateCVPage />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
         <Route path="/" element={<LayoutWrapper />}>

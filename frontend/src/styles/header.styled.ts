@@ -15,18 +15,21 @@ export const HeaderContainer = styled.div`
   @media ${themes.media.maxTabletPortrait} {
     font-size: 16px;
   }
+
+  @media ${themes.media.maxMobile} {
+    padding-inline: 40px;
+  }
 `;
 
 export const Nav = styled.ul`
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   list-style: none;
 `;
 
 export const NavItem = styled.li`
   margin: 0 20px;
-  padding-bottom: 10px;
   transition: all 0.3s;
   position: relative;
 
