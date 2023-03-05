@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CreateProjectContainer = styled.div`
+export const UserContainer = styled.div`
   padding: 70px 20px; 
 
   .wrapper {
@@ -17,20 +17,5 @@ export const CreateProjectContainer = styled.div`
       margin: 58px 0 28px 40px;
       
     }
-    
-    .create-form {
-      padding: 0px 40px 35px;
-      
-      input {
-        margin-bottom: 20px;
-      }
-      
-      button {
-        display: block;
-        max-width: 300px;
-        margin: 40px auto 0;
-      }
-    }
   }
-    
 `

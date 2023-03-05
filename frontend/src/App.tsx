@@ -26,6 +26,8 @@ const App = () => {
           <Route path="/createcv" element={<CreateCVPage />} />
           <Route path="/createproject" element={<CreateProjectPage />} />
           <Route path="/cv" element={<CreateCVPage />} />
+          <Route path="/project:id" element={<ProjectsPage />} />
+          <Route path="/user:id" element={<UsersPage />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
         <Route path="/" element={<LayoutWrapper />}>
