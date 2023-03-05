@@ -31,5 +31,5 @@ export const userSlice = createSlice({
 });
 
 export const { get, edit, remove } = userSlice.actions;
-export const showUser = (state: IUserState) => state;
+export const showUser = (state: { user: IUserState }) => state.user;
 export default userSlice.reducer;

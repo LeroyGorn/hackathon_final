@@ -3,13 +3,15 @@ import { InputCheckbox, InputCheckboxLabel } from "../styles/createcv.styled";
 
 interface IFormCheckboxProps {
   name: string;
+  title?: string;
+  checked?: boolean;
 }
 
-const FormCheckbox = ({ name }: IFormCheckboxProps) => {
+const FormCheckbox = ({ name, title }: IFormCheckboxProps) => {
   return (
     <InputCheckboxLabel>
-      <InputCheckbox name="is_public" type="checkbox" />
-      Make Your CV Public?
+      <InputCheckbox checked name={name} type="checkbox" />
+      {title ? title : "Make Your CV Public?"}
     </InputCheckboxLabel>
   );
 };
