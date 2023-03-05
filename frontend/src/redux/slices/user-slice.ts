@@ -6,6 +6,7 @@ const initialState: IUserState = {
   email: "",
   first_name: "",
   last_name: "",
+  role: "",
 };
 
 export const userSlice = createSlice({
@@ -18,7 +19,7 @@ export const userSlice = createSlice({
     },
 
     remove: (state) => {
-      state = { email: "", first_name: "", last_name: "" };
+      state = { email: "", first_name: "", last_name: "", role: "" };
       return state;
     },
 

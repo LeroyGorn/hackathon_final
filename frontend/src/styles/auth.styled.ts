@@ -24,6 +24,13 @@ export const AuthInput = styled(Field)`
   height: 59px;
   padding-left: 27px;
 
+  &.textarea {
+    resize: vertical;
+    height: 140px;
+    padding-top: 10px;
+    padding-left: 27px;
+  }
+
   &::placeholder {
     color: ${themes.colors.lightGrey};
     font-size: 14px;
@@ -62,7 +69,7 @@ export const AuthButtonElement = styled.button`
 
   &:hover {
     background-color: #fff;
-    color:${themes.colors.primary} ;
+    color: ${themes.colors.primary};
   }
 `;
 
@@ -172,9 +179,15 @@ export const DropdownPreview = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   cursor: pointer;
   position: relative;
+
+  & span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+  }
 
   &.placeholder {
     color: ${themes.colors.lightGrey};
@@ -238,6 +251,11 @@ export const DropdownContent = styled.div`
   }
 `;
 
+export const DropdownBox = styled.div`
+  max-height: 350px;
+  overflow: auto;
+`;
+
 export const DropdownOption = styled.div`
   display: flex;
   align-items: center;
@@ -252,6 +270,10 @@ export const DropdownOption = styled.div`
   z-index: 3;
   cursor: pointer;
   transition: background-color 0.3s;
+
+  &.smallOptions {
+    height: 32px;
+  }
 
   &:hover {
     background-color: ${themes.colors.lightGrey};
