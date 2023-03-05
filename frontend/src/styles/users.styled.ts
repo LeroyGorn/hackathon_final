@@ -10,7 +10,15 @@ export const UsersContainer = styled.div`
     margin: 0 auto;
   }
 
+  .user-name {
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+
+  .user-experience {
+    margin-bottom: 20px;
   
+  }
   button {
     display: block;
     max-width: 200px;
@@ -38,15 +46,6 @@ export const CardWrapper = styled.div`
 
   .bold-text {
     font-weight: 700;
-  }
-    
-  .user-name {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
-
-  .user-experience {
-    margin-bottom: 20px;
   }
 
   .bottom-wrapper {

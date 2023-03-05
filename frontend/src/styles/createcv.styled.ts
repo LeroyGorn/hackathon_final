@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { themes } from "./themes";
 
 export const CreateCVPageWrapper = styled.div`
-  padding: 75px 120px 0;
+  padding: 70px 40px;
 
   @media ${themes.media.maxMobile} {
-    padding-inline: 50px;
+    padding-inline: 30px;
   }
 
   @media ${themes.media.maxLowScreenMobile} {
@@ -18,13 +18,13 @@ export const CreateCvModal = styled.div`
   border: 0.5px solid ${themes.colors.mediumGrey};
   background-color: ${themes.colors.secondary};
   width: 100%;
-  border-radius: 6px;
+  border-radius: 10px;
   box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
 `;
 
 export const FormTitle = styled.h2`
   font-size: 31px;
-  font-weight: ${themes.font.weight.medium};
+  /* font-weight: ${themes.font.weight.medium}; */
   margin: 58px 0 28px 40px;
 `;
 
@@ -50,6 +50,7 @@ export const InputBox = styled.div`
 
 export const InputContainer = styled.div`
   width: 500px;
+  max-width: 450px;
 
   @media ${themes.media.maxMobile} {
     width: 100%;
