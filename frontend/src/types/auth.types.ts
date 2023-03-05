@@ -41,3 +41,11 @@ export interface IUserState {
   last_name: string;
   role: string;
 }
+
+export interface IUsersState {
+  user: { id: number; first_name: string; last_name: string };
+  education: string;
+  tech_stack: string[];
+  work_experience: string;
+  years_experience: number;
+}
