@@ -5,7 +5,9 @@ import {
   ISignInResponse,
   ISignUpData,
   ISignUpResponse,
+  IUpdateData,
 } from "../../types/auth.types";
+import { ICreateProjectData } from "../../types/infoCard.types";
 
 export class AuthService {
   constructor(private httpService: HttpService) {}
@@ -14,6 +16,12 @@ export class AuthService {
   }
   public signup(data: ISignUpData): Promise<void | ISignUpResponse> {
     return this.httpService.post("api/auth/register/", data);
+  }
+  public update(data: IUpdateData): Promise<void | ISignUpResponse> {
+    return this.httpService.post("api/users/summary/update/", data);
+  }
+  public create(data: ICreateProjectData): Promise<void | ICreateProjectData> {
+    return this.httpService.post("api/users/summary/update/", data);
   }
 }
 

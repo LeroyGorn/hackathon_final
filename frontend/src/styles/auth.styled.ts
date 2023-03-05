@@ -1,4 +1,5 @@
 import { Field } from "formik";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { themes } from "./themes";
 
@@ -22,6 +23,13 @@ export const AuthInput = styled(Field)`
   border-radius: 6px;
   height: 59px;
   padding-left: 27px;
+
+  &.textarea {
+    resize: vertical;
+    height: 140px;
+    padding-top: 10px;
+    padding-left: 27px;
+  }
 
   &::placeholder {
     color: ${themes.colors.lightGrey};
@@ -47,13 +55,22 @@ export const AuthModalWrapper = styled.div`
 `;
 
 export const AuthButtonElement = styled.button`
-  height: 57px;
   width: 100%;
+  padding: 20px;
+  height: 57px;
   background-color: ${themes.colors.primary};
+  border: 1px solid ${themes.colors.primary};
   border-radius: 6px;
   color: ${themes.colors.secondary};
   font-size: 16px;
+  line-height: 16px;
   cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #fff;
+    color: ${themes.colors.primary};
+  }
 `;
 
 export const HelpText = styled.div`
@@ -63,7 +80,7 @@ export const HelpText = styled.div`
   text-align: center;
 `;
 
-export const HelperTextLink = styled.a`
+export const HelperTextLink = styled(Link)`
   color: ${themes.colors.primary};
   text-decoration: none;
   font-weight: ${themes.font.weight.semiBold};
@@ -162,9 +179,15 @@ export const DropdownPreview = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   cursor: pointer;
   position: relative;
+
+  & span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+  }
 
   &.placeholder {
     color: ${themes.colors.lightGrey};
@@ -228,6 +251,11 @@ export const DropdownContent = styled.div`
   }
 `;
 
+export const DropdownBox = styled.div`
+  max-height: 350px;
+  overflow: auto;
+`;
+
 export const DropdownOption = styled.div`
   display: flex;
   align-items: center;
@@ -242,6 +270,10 @@ export const DropdownOption = styled.div`
   z-index: 3;
   cursor: pointer;
   transition: background-color 0.3s;
+
+  &.smallOptions {
+    height: 32px;
+  }
 
   &:hover {
     background-color: ${themes.colors.lightGrey};

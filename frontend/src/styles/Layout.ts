@@ -13,3 +13,17 @@ export const LayoutWrapper = styled.div`
     position: relative;
   }
 `;
+
+export const LayoutContainer = styled.div`
+  background-color: ${themes.colors.secondary};
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  @media ${themes.media.minPCFullHD} {
+    width: 1800px;
+    margin: auto;
+    position: relative;
+  }
+`;
