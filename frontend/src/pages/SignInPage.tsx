@@ -32,6 +32,9 @@ const SignInPage = () => {
         localStorage.setItem("ACCESS_TOKEN", res.access);
         localStorage.setItem("REFRESH_TOKEN", res.refresh);
         localStorage.setItem("USER_NAME", res.first_name);
+        localStorage.setItem("LAST_NAME", res.last_name);
+        localStorage.setItem("USER_EMAIL", res.email);
+        localStorage.setItem("USER_ROLE", res.role);
         const { first_name, last_name, email, role } = res;
         const userStoreData = { first_name, last_name, email, role };
         dispatch(get(userStoreData));

@@ -1,4 +1,5 @@
 import { ICVData } from "../types/createcv.types";
+import { ICreateProjectData } from "../types/infoCard.types";
 
 export enum ErrorMessage {
   DEFAULT = "Oops, something went wrong..",
@@ -18,21 +19,14 @@ export const initialSignUpData = {
   check_password: "",
 };
 
-export const initialUpdateUserData = {
-  first_name: "",
-  last_name: "",
-  email: "",
-  role: "",
-  password: "",
-  check_password: "",
-};
+export const initialUpdateUserData = {};
 
-export const initialCreateProjectData = {
+export const initialCreateProjectData: ICreateProjectData = {
   name: "",
   description: "",
-  max_members: "",
-  is_open: "",
-  project_stack: "",
+  max_members: 0,
+  is_open: true,
+  project_stack: [],
 };
 
 export const createProjectInputData = [
@@ -54,8 +48,8 @@ export const createProjectInputData = [
     id: 3,
     title: "Required members",
     type: "number",
-    placeholder: "5",
-    name: "members",
+    placeholder: "Number of participants",
+    name: "max_members",
   },
 ];
 
@@ -89,7 +83,7 @@ export const updateInputData = [
     dropdown: true,
     dropdownHeader: "Select a Role",
     dropdownOptions: ["Recruiter", "Candidate"],
-  }
+  },
 ];
 
 export const signInInputData = {

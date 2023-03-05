@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   border: 0.5px solid #878787;
   border-radius: 0 0 10px 10px;
   box-shadow: 0px 4px 64px rgba(0, 0, 0, 0.05);
-  padding: 35px 80px;
+  padding: 15px 80px;
   height: 100px;
   font-size: 20px;
   font-weight: ${themes.font.weight.semiBold};
@@ -57,6 +57,7 @@ export const NavItem = styled.li`
 `;
 
 export const LogoutWrapper = styled.div`
+  margin-top: 20px;
   display: flex;
 `;
 
@@ -151,4 +152,9 @@ export const BurgerModalWrapper = styled.div`
   &.open {
     transform: translateX(0);
   }
+`;
+
+export const LogoWrapper = styled.div`
+  width: 75px;
+  height: 75px;
 `;

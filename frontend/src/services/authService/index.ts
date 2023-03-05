@@ -17,11 +17,21 @@ export class AuthService {
   public signup(data: ISignUpData): Promise<void | ISignUpResponse> {
     return this.httpService.post("api/auth/register/", data);
   }
-  public update(data: IUpdateData): Promise<void | ISignUpResponse> {
-    return this.httpService.post("api/users/summary/update/", data);
+  public update(
+    data: { user: IUpdateData },
+    Authorization: string
+  ): Promise<void | ISignUpResponse> {
+    return this.httpService.patch("api/users/summary/update/", data, {
+      headers: { Authorization },
+    });
   }
-  public create(data: ICreateProjectData): Promise<void | ICreateProjectData> {
-    return this.httpService.post("api/users/summary/update/", data);
+  public create(
+    data: ICreateProjectData,
+    Authorization: string
+  ): Promise<void | ICreateProjectData> {
+    return this.httpService.post("api/projects/create/", data, {
+      headers: { Authorization },
+    });
   }
 }
 

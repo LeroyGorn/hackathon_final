@@ -1,64 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AuthButton from "../common/AuthButton";
 import ProjectCard from "../components/projectCard";
-import * as Styled from "../styles/projects.styled"
+import * as Styled from "../styles/projects.styled";
+import { projectService } from "../services/projectsService";
+import { get, showProjects } from "../redux/slices/projects-slice";
 
-const AboutPage = () => {
-  const navigate = useNavigate()
+const ProjectsPage = () => {
+  const data = useSelector(showProjects);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const mock = [
-    {
-      id: 1,
-      name: "Hackathon",
-      description: " Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      is_open: true,
-      max_members: 100,
-      project_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    },
-    {
-      id: 2,
-      name: "Hackathon",
-      description: " Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      is_open: true,
-      max_members: 100,
-      project_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    },
-    {
-      id: 2,
-      name: "Hackathon",
-      description: " Welcome to your user profile page! This is where you can showcase your skills, experience, and contributions to the community. Update your profile picture and bio to introduce yourself to other members. You can also add your skills and areas of expertise to help others find you when searching for teammates. Keep track of your projects and contributions using our built-in tools, and connect with other members by sending messages and joining teams.",
-      is_open: true,
-      max_members: 100,
-      project_stack: [
-        "Django",
-        "PostgreSQL",
-        "Java"
-      ]
-    }
-  ]
+  useEffect(() => {
+    const token = localStorage.getItem("ACCESS_TOKEN");
+    if (token)
+      projectService
+        .getProjects(token)
+        .then((res) => res && dispatch(get(res)));
+  }, [dispatch]);
 
   const handleClick = () => {
-    navigate('/createproject')
-  }
+    navigate("/createproject");
+  };
 
   return (
     <Styled.ProjectsContainer>
       <div className="wrapper">
-        <AuthButton type="button" title="Create New Project" handleClick={handleClick}/>
-        {mock.map((card) => <ProjectCard {...card} key={card.id} />)}
+        <AuthButton
+          type="button"
+          title="Create New Project"
+          handleClick={handleClick}
+        />
+        {data.map((card, idx) => (
+          <ProjectCard {...card} key={idx} />
+        ))}
       </div>
-      <img className="projects-image" src="./images/projects.svg" alt="Projects" />
+      <img
+        className="projects-image"
+        src="./images/projects.svg"
+        alt="Projects"
+      />
     </Styled.ProjectsContainer>
   );
 };
 
-export default AboutPage;
+export default ProjectsPage;
