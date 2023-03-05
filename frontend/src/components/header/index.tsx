@@ -28,7 +28,7 @@ const Header = () => {
   }, [userData.first_name]);
 
   useEffect(() => {
-    if (width && width < 768) {
+    if (width && width < 769) {
       setIsMobile(true);
     } else {
       setIsMobile(false);

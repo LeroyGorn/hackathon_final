@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthButton from "../common/AuthButton";
 import AuthDropdown from "../common/AuthDropdown";
-import AuthInput from "../common/AuthInput";
+import Input from "../common/Input";
 import AuthModal from "../common/AuthModal";
 import { initialSignUpData, signUpInputData } from "../constants";
 import { authService } from "../services/authService";
@@ -61,7 +61,7 @@ const SignInPage = () => {
                     error={errors[inputData.name as keyof ISignUpData]}
                   />
                 ) : (
-                  <AuthInput
+                  <Input
                     key={inputData.id}
                     type={inputData.type}
                     name={inputData.name}

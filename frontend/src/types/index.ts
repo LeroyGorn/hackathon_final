@@ -57,6 +57,8 @@ export enum HttpStatusCode {
 export interface IHttpConfig {
   url?: string;
   headers?: Record<string, string>;
+  params?: any;
+  data?: any;
 }
 
 export interface IHttpClient {
